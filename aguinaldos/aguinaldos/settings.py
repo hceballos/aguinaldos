@@ -134,4 +134,5 @@ INPUT_FILES_DIR = os.path.join(BASE_DIR, 'input')
 if not os.path.exists(INPUT_FILES_DIR):
     os.makedirs(INPUT_FILES_DIR)
 
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

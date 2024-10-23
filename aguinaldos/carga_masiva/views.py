@@ -88,7 +88,16 @@ import openpyxl
 import re
 import os
 
+from django.http import FileResponse
+from django.conf import settings
+import os
 
+def descargar_archivo_tipo(request):
+    # Ruta completa del archivo Excel en la carpeta 'media'
+    ruta_archivo = os.path.join(settings.MEDIA_ROOT, 'archivos/archivo_tipo.xlsx')
+
+    # Sirve el archivo como respuesta
+    return FileResponse(open(ruta_archivo, 'rb'), as_attachment=True, filename='archivo_tipo.xlsx')
 
 
 

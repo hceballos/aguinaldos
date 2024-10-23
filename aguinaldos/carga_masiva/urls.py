@@ -18,8 +18,14 @@ Including another URLconf
 
 from django.urls import path
 from . import views
+from django.urls import path
+from .views import descargar_archivo_tipo
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('cargar_excel/', views.cargar_excel, name='cargar_excel'),
     path('carga_exitosa/', views.carga_exitosa, name='carga_exitosa'),  # Esta URL apunta a la vista de carga exitosa
-]
+	path('descargar_archivo_tipo/', descargar_archivo_tipo, name='descargar_archivo_tipo'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
